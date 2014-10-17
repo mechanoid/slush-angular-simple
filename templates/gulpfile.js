@@ -6,7 +6,6 @@ var gulp = require('gulp'),
     less = require('gulp-less'),
     sourcemaps = require('gulp-sourcemaps'),
     watch = require('gulp-watch'),
-    browserify = require('gulp-browserify'),
     http = require('http'),
     ecstatic = require('ecstatic');
 
@@ -14,11 +13,14 @@ var gulp = require('gulp'),
 var appPath = __dirname + "/app",
     // base directory for the apps js files
     jsPath = appPath + "/javascripts",
+
     // uncompiled coffeescript files
     jsSrcPath = jsPath + "/src",
-    // compiled js files
+
+    // compiled coffeescript -> js files
     jsCompilePath = jsPath + "/compiled/.",
-    // browserified production files
+
+    // concatenated production files
     jsDistPath = jsPath + "/dist/.",
 
     // base directory for the apps css files
@@ -33,13 +35,17 @@ var bowerPath = __dirname + "/bower_components";
 var jsDependencies = [
   // Example:
   // bowerPath + "/lodash/dist/lodash.js",
+  bowerPath + "/angular/angular.js",
+  bowerPath + "/angular-route/angular-route.js"
 ];
 
-gulp.task('browserify', ['coffee'], function(){
-  return gulp.src(jsCompilePath + '/app.js')
-  .pipe(browserify({debug: true}))
-  .pipe(gulp.dest(jsDistPath + ''));
-});
+var appJsFiles = [
+  jsCompilePath + "/controllers.js",
+  jsCompilePath + "/controllers/**/*.js",
+  jsCompilePath + "/services.js",
+  jsCompilePath + "/services/**/*.js",
+  jsCompilePath + "/app.js"
+];
 
 gulp.task('jsDependencies', function(){
   gulp.src(jsDependencies)
@@ -56,12 +62,20 @@ gulp.task('coffee', function(){
   .pipe(gulp.dest(jsCompilePath));
 });
 
+
 gulp.task('less', function () {
   gulp.src(cssSrcPath + '/**/*.less')
   .pipe(sourcemaps.init())
   .pipe(less())
   .pipe(sourcemaps.write('../dist'))
   .pipe(gulp.dest(cssDistPath));
+});
+
+gulp.task('concatenateAppJsFiles', ['coffee'], function(){
+  gulp.src(appJsFiles)
+  .pipe(print())
+  .pipe(concat('main.js'))
+  .pipe(gulp.dest(jsDistPath));
 });
 
 gulp.task('watch', function() {
@@ -77,7 +91,8 @@ gulp.task('createServer', function() {
 });
 
 
+gulp.task('compileJS', ['concatenateAppJsFiles']);
+
 gulp.task('default', ['jsDependencies', 'compileJS', 'less'], function(){});
 
-gulp.task('compileJS', ['browserify']);
 gulp.task('server', ['jsDependencies', 'compileJS', 'less', 'watch', 'createServer']);

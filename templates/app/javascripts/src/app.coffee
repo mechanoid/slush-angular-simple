@@ -1,6 +1,4 @@
-appControllers = require './controllers'
-
-app = angular.module 'app', ['ngRoute', 'appControllers']
+app = angular.module 'app', ['ngRoute', 'controllers', 'services']
 
 app.config ($routeProvider, $httpProvider) ->
   $routeProvider.when '/',

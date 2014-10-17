@@ -10,10 +10,13 @@
   "dependencies": {
     "coffee-script": "*",
     "gulp": "*",
-    "gulp-coffee": "*",
+    "gulp-concat": "*",
     "gulp-util": "*",
     "gulp-watch": "*",
     "gulp-print": "*",
+    "gulp-coffee": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-less": "*",
     "bower": "*",
     "ecstatic": "*"
   },

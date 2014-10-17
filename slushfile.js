@@ -39,8 +39,13 @@ gulp.task('default', function (done) {
       .on('end', function () {
         done();
 
-        gulp.src('').pipe(shell('npm install --save', { "cwd": appFolder + '/' }));
+        gulp.src('').pipe(shell('npm install --save', { "cwd": appFolder + '/' })).on('end', function(){
+          gulp.src('').pipe(shell('gulp server', { "cwd": appFolder + '/' }));
+        });
+
         gulp.src('').pipe(shell('bower install --save', { "cwd": appFolder + '/' }));
+
+
       });
   });
 });
