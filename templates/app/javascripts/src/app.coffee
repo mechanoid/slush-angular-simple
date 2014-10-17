@@ -1,4 +1,4 @@
-app = angular.module 'app', ['ngRoute', 'controllers', 'services']
+app = angular.module 'app', ['ngRoute', 'controllers', 'services', 'filters']
 
 app.config ($routeProvider, $httpProvider) ->
   $routeProvider.when '/',

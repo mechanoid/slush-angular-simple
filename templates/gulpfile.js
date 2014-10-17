@@ -39,13 +39,18 @@ var jsDependencies = [
   bowerPath + "/angular-route/angular-route.js"
 ];
 
-var appJsFiles = [
-  jsCompilePath + "/controllers.js",
-  jsCompilePath + "/controllers/**/*.js",
-  jsCompilePath + "/services.js",
-  jsCompilePath + "/services/**/*.js",
-  jsCompilePath + "/app.js"
-];
+var angularModuleTypes = ['controllers', 'filters', 'services'];
+
+var appJsFiles = [];
+
+angularModuleTypes.forEach(function(type) {
+  appJsFiles.push(jsCompilePath + "/" + type +".js");
+  appJsFiles.push(jsCompilePath + "/" + type +"/**/*.js");
+});
+
+appJsFiles.push(jsCompilePath + "/app.js");
+
+
 
 gulp.task('jsDependencies', function(){
   gulp.src(jsDependencies)
