@@ -1,0 +1,17 @@
+{
+  "name": "<%= appname %>",
+  "version": "0.0.0",
+  "license": "<%= license %>",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "package.json",
+    "gulpfile.js",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "*",
+    "angular-route": "*"
+  }
+}

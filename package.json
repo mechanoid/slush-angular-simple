@@ -1,0 +1,30 @@
+{
+  "name": "slush-angular-simple",
+  "version": "0.0.0",
+  "description": "a slush angular app generator with convenient support for CoffeeScript and a resulting, reasonable angular folder structure",
+  "main": "slushfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mechanoid/slush-angular-coffee.git"
+  },
+  "keywords": [
+    "slushgenerator"
+  ],
+  "author": "Falk Hoppe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mechanoid/slush-angular-coffee/issues"
+  },
+  "homepage": "https://github.com/mechanoid/slush-angular-coffee",
+  "dependencies": {
+    "coffee-script": "*",
+    "gulp": "*",
+    "gulp-util": "*",
+    "gulp-print": "*",
+    "gulp-conflict": "*",
+    "gulp-concat": "*"
+  }
+}

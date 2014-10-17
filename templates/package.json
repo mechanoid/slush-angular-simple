@@ -1,0 +1,22 @@
+{
+  "name": "<%= appname %>",
+  "version": "0.0.1",
+  "description": "some test project",
+  "main": "javascripts/dist/app.js",
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "dependencies": {
+    "coffee-script": "*",
+    "gulp": "*",
+    "gulp-coffee": "*",
+    "gulp-util": "*",
+    "gulp-watch": "*",
+    "gulp-print": "*",
+    "bower": "*",
+    "ecstatic": "*"
+  },
+  "devDependencies": {
+  }
+}

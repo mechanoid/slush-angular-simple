@@ -1,0 +1,5 @@
+app/javascripts/compiled/*
+app/javascripts/dist/*
+app/stylesheets/dist/*
+bower_components/*
+node_modules/*
