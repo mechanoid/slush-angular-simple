@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mechanoid/slush-angular-coffee.git"
+    "url": "https://github.com/mechanoid/slush-angular-simple.git"
   },
   "keywords": [
     "slushgenerator"
@@ -16,15 +16,18 @@
   "author": "Falk Hoppe",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mechanoid/slush-angular-coffee/issues"
+    "url": "https://github.com/mechanoid/slush-angular-simple/issues"
   },
-  "homepage": "https://github.com/mechanoid/slush-angular-coffee",
+  "homepage": "https://github.com/mechanoid/slush-angular-simple",
   "dependencies": {
     "coffee-script": "*",
     "gulp": "*",
     "gulp-util": "*",
     "gulp-print": "*",
     "gulp-conflict": "*",
-    "gulp-concat": "*"
+    "gulp-template": "*",
+    "gulp-concat": "*",
+    "gulp-shell": "*",
+    "inquirer": "*"
   }
 }
